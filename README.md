@@ -3,6 +3,9 @@
 [![ckermit-raymii](https://snapcraft.io/ckermit-raymii/badge.svg)](https://snapcraft.io/ckermit-raymii)
 [![ckermit-raymii](https://snapcraft.io/ckermit-raymii/trending.svg?name=0)](https://snapcraft.io/ckermit-raymii)
 
+
+<iframe src="https://snapcraft.io/ckermit-raymii/embedded?button=white" frameborder="0" width="100%" height="310px" style="border: 1px solid #CCC; border-radius: 2px;"></iframe>
+
 This is the Ubuntu 18.04 .deb package converted to snap, because in Ubuntu
 20.04, there is no ckermit package. Just as I did with Gnash. See
 https://raymii.org for more info on the snap, and
