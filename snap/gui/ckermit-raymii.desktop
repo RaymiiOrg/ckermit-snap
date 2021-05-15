@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=CKermit
+GenericName=Kermit
+Comment=Kermit is a serial and network communications package
+Icon=${SNAP}/meta/gui/ckermit-raymii.png
+Exec=kermit
+Categories=Development;

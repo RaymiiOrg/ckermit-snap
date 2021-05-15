@@ -1,0 +1,76 @@
+name: ckermit-raymii
+base: core18 
+version: '9.0.302-5.3' 
+summary: serial and network communications package
+icon: snap/gui/ckermit-raymii.png
+description: |
+  C-Kermit is a combined network and serial communication software package offering a consistent, transport-independent, 
+  cross-platform approach to connection establishment, terminal sessions, file transfer, file management, 
+  character-set translation, numeric and alphanumeric paging, and automation of file transfer and management, 
+  dialogs, and communication tasks through its built-in scripting language. 
+  The Kermit Project originated at Columbia University in New York City in 1981 and remained there for 30 years. 
+  Since 2011 it is independent. 
+
+  **Setup**
+  In order to access a serial port over USB (ttyUSB0 for example, you need to add your user to the `dailout` 
+  group and connect the snap to the `raw-usb` socket. Open a terminal window, 
+  run the following commands an *reboot* your computer.
+  > `sudo usermod -a -G dialout $USER`
+  > `sudo snap connect arduino:raw-usb`
+  Now restart your computer and you're good to go!
+
+grade: stable 
+confinement: strict 
+
+parts:  
+  ckermit-raymii:
+    plugin: dump
+    source: snap/local
+    override-build: |
+      chmod +x ckermit-wrapper
+      chmod +x ckermit-snap.desktop
+      snapcraftctl build
+    stage:
+      - usr/bin/ckermit-wrapper
+      - usr/share/applications/ckermit.desktop
+    organize:
+      ckermit-wrapper: usr/bin/ckermit-wrapper
+      ckermit.desktop: usr/share/applications/ckermit.desktop
+  ckermit-raymii:
+    plugin: nil
+    override-build: |
+      snapcraftctl build
+    stage-packages: 
+      - ckermit
+      - libpam0g 
+      - libtinfo5 
+
+apps:
+  ckermit-raymii:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/kermit
+    plugs:
+      - home
+      - desktop
+      - x11
+      - desktop-legacy
+      - network
+      - raw-usb
+      - serial-port
+  ckermit:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/kermit
+    plugs:
+      - home
+      - desktop-legacy
+      - x11
+      - desktop
+      - network
+      - raw-usb
+      - serial-port

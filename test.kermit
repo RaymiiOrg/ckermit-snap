@@ -1,0 +1,22 @@
+#!/snap/bin/ckermit-raymii +
+kermit -l /dev/ttyUSB0
+set speed 115200
+set carrier-watch off
+set handshake none
+set flow-control none
+robust
+set file type bin
+set file name lit
+set rec pack 4096
+set send pack 4096
+set window 5
+ 
+SET INPUT ECHO ON
+INPUT 999 Hit any key to stop autoboot:
+LINEOUT
+INPUT 5 =>
+LINEOUT setenv console ttymxc0
+INPUT 5 =>
+LINEOUT setenv optargs serial.getty=ttymxc0
+LINEOUT boot
+connect
