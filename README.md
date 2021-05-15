@@ -20,6 +20,8 @@ miss anything, just contact me.
 
 ![img](kermit.jpg)
 
+(Screenshot from here: http://www.amber-lab.com/wiki/amber-board-tutorials/board-connection-to-pc/)
+
 To use `ckermit` on the command-line you must use the command
 `ckermit-raymii`. `ckermit` is a reserved name on the snap store.
 
