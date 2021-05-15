@@ -43,7 +43,11 @@ parts:
     stage-packages: 
       - ckermit
       - libpam0g 
-      - libtinfo5 
+      - libtinfo5
+      - libssl1.0.0 
+      - libcomerr2
+      - libgssapi-krb5-2 
+      - libk5crypto3  
 
 apps:
   ckermit-raymii:
@@ -60,6 +64,7 @@ apps:
       - network
       - raw-usb
       - serial-port
+      - network-bind
   ckermit:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
@@ -74,3 +79,4 @@ apps:
       - network
       - raw-usb
       - serial-port
+      - network-bind

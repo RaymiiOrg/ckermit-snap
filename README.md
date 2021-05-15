@@ -9,7 +9,7 @@ https://raymii.org for more info on the snap, and
 https://www.kermitproject.org/ for more info on kermit.
 
 Ubuntu versions 18.04 and 21.04 currently do have ckermit in the repository, so this 
-snap is only really useful on Ubuntu 20.04 LTS.
+snap is only really useful on Ubuntu 20.04 LTS. (https://answers.launchpad.net/ubuntu/+source/ckermit/+question/693175)
 
 I personally use ckermit for a few scripts that boot up ARM devkit boards via NFS. 
 One such script can be found in this repository (`test.kermit`) and is what I 
