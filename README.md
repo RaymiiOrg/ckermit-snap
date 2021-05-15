@@ -19,6 +19,9 @@ One such script can be found in this repository (`test.kermit`) and is what I
 use to test the snap with. Other functionality is not tested, but if you
 miss anything, just contact me.
 
+
+![img](kermit.jpg)
+
 To use `ckermit` on the command-line you must use the command
 `ckermit-raymii`. `ckermit` is a reserved name on the snap store.
 
