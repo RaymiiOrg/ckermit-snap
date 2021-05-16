@@ -6,7 +6,7 @@
 
 This is the Ubuntu 18.04 .deb package converted to snap, because in Ubuntu
 20.04, there is no ckermit package. Just as I did with Gnash. See
-https://raymii.org for more info on the snap, and
+https://raymii.org/s/blog/Ive_packaged_up_CKermit_as_a_snap_for_Ubuntu_20.04.html for more info on the snap, and
 https://www.kermitproject.org/ for more info on kermit.
 
 Ubuntu versions 18.04 and 21.04 currently do have ckermit in the repository, so this 
