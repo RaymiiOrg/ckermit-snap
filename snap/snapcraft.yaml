@@ -1,6 +1,6 @@
 name: ckermit-raymii
 base: core18 
-version: '9.0.302-5.4' 
+version: '9.0.302-5.6' 
 summary: serial and network communications package
 icon: snap/gui/ckermit-raymii.png
 description: |
@@ -16,7 +16,7 @@ description: |
   group and connect the snap to the `raw-usb` socket. Open a terminal window, 
   run the following commands an *reboot* your computer.
   > `sudo usermod -a -G dialout $USER`
-  > `sudo snap connect arduino:raw-usb`
+  > `sudo snap connect ckermit-raymii:raw-usb`
   Now restart your computer and you're good to go!
 
 grade: stable 
@@ -49,12 +49,9 @@ parts:
       - libgssapi-krb5-2 
       - libk5crypto3  
 
-plugs:
-  lockfiles-ckermit:
-    interface: system-files
-    write:
-    - /var/lock
-
+layout:
+  $SNAP/var/lock:
+    type: tmpfs
 
 apps:
   ckermit-raymii:
@@ -72,38 +69,4 @@ apps:
       - raw-usb
       - serial-port
       - network-bind
-      - lockfiles-ckermit
 
-  ckermit:
-    environment:
-      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
-      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
-      LANG: C.UTF-8
-    command: usr/bin/kermit
-    plugs:
-      - home
-      - desktop-legacy
-      - x11
-      - desktop
-      - network
-      - raw-usb
-      - serial-port
-      - lockfiles-ckermit
-      - network-bind
-
-  kermit:
-    environment:
-      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
-      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
-      LANG: C.UTF-8
-    command: usr/bin/kermit
-    plugs:
-      - home
-      - desktop-legacy
-      - x11
-      - desktop
-      - network
-      - raw-usb
-      - serial-port
-      - network-bind
-      - lockfiles-ckermit
