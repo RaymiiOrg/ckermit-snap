@@ -39,13 +39,15 @@ and remained there for 30 years.  Since 2011 it is independent.
 
 In order to access a serial port over USB (ttyUSB0 for example, you need to
 add your user to the `dailout` group and connect the snap to the `raw-usb`
-socket. 
+socket as well as permission to create a lockfile.
 
 Open a terminal window, run the following commands an *reboot* your computer.
 
 	sudo usermod -a -G dialout $USER
 
 	sudo snap connect ckermit-raymii:raw-usb
+
+	sudo snap connect ckermit-raymii:lockfiles-ckermit
 
 Now restart your computer and you're good to go!
 

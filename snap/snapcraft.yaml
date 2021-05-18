@@ -1,6 +1,6 @@
 name: ckermit-raymii
 base: core18 
-version: '9.0.302-5.3' 
+version: '9.0.302-5.4' 
 summary: serial and network communications package
 icon: snap/gui/ckermit-raymii.png
 description: |
@@ -49,6 +49,13 @@ parts:
       - libgssapi-krb5-2 
       - libk5crypto3  
 
+plugs:
+  lockfiles-ckermit:
+    interface: system-files
+    write:
+    - /var/lock
+
+
 apps:
   ckermit-raymii:
     environment:
@@ -65,6 +72,8 @@ apps:
       - raw-usb
       - serial-port
       - network-bind
+      - lockfiles-ckermit
+
   ckermit:
     environment:
       PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
@@ -79,4 +88,22 @@ apps:
       - network
       - raw-usb
       - serial-port
+      - lockfiles-ckermit
       - network-bind
+
+  kermit:
+    environment:
+      PATH: $SNAP/usr/bin:$SNAP/bin/:$PATH
+      PYTHONPATH: $SNAP/usr/lib/python2.7/site-packages:$SNAP/usr/lib/python2.7/dist-packages:$PYTHONPATH
+      LANG: C.UTF-8
+    command: usr/bin/kermit
+    plugs:
+      - home
+      - desktop-legacy
+      - x11
+      - desktop
+      - network
+      - raw-usb
+      - serial-port
+      - network-bind
+      - lockfiles-ckermit
